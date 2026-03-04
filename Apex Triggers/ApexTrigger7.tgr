@@ -1,0 +1,19 @@
+trigger ApexTrigger7 on Account (before insert) {
+	//***CONTEXT VARIABLE***
+    //4) Trigger.newMap
+    //Only available in beforeupdate, afterupdate, afterinsert, afterundelete triggers
+    //bcoz IDs will be created only after the record is inserted
+    
+    Map<Id,account> nMap = new Map<Id,account>();
+    nMap = trigger.newMap;
+    
+    list<contact> clist = [select lastname from contact where accountid in :nmap.keyset()];
+    
+    for(contact c:clist){
+        account a = nmap.get(c.accountid);
+        c.mailingcity=a.billingstate;
+    }
+    update clist;
+    
+
+}

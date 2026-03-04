@@ -1,0 +1,13 @@
+trigger ApexTrigger4 on Account (before update) {
+	
+    //***CONTEXT VARIABLE***
+    //2) Trigger.old
+    //returns the sobjects
+    //Only available in update and delete triggers
+    
+    Account aold = Trigger.old[0];
+    Account anew = Trigger.new[0];
+    System.debug('Old name value: '+aold.name);
+    System.debug('New name value: '+anew.name);
+    
+}

@@ -1,0 +1,19 @@
+trigger ApexTrigger6 on Opportunity (before update) {
+	//***CONTEXT VARIABLE***
+    //3) Trigger.oldMap
+    //returns the map of IDs and the old sobjects
+    //only available in update and delete triggers
+    
+    Map<Id,Opportunity> oMap = new Map<Id,Opportunity>();
+    oMap = trigger.oldMap;
+    for(Opportunity newOpp: trigger.new){
+        Opportunity oldopp = new opportunity();
+        oldopp = omap.get(newopp.Id);
+        if(newopp.amount != oldopp.Amount){
+            newopp.amount.adderror('amount cannot be changed'); //trigger exception
+        }
+    }
+    
+    
+    
+}

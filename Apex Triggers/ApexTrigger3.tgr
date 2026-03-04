@@ -1,0 +1,13 @@
+trigger ApexTrigger3 on Account (before insert) {
+	
+    //***CONTEXT VARIABLE***
+    //1) Trigger.new
+    
+    Account ac1 = Trigger.new[0]; // 1st record
+    ac1.NumberofEmployees=200; 
+    
+    // bulky fight
+    for(Account acc: Trigger.new){
+        acc.NumberOfEmployees = 100;
+    }
+}

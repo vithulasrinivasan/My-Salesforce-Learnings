@@ -1,0 +1,14 @@
+trigger ApexTrigger8 on Lead (before insert) {
+	
+    //BEST PRACTICES TO WRITE APEX TRIGGERS IN SALESFORCE
+    
+    //Bulkified triggers = bulkifying the triggers
+    
+    lead l = trigger.new[0]; //will only update the value for first record
+    l.rating = 'warm'; //avoing using triggers like this
+    
+    //always use triggers in bulkified form
+    for(lead l:trigger.new){ //will iterate through all the new records
+        l.rating='warm';
+    }
+}

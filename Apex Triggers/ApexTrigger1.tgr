@@ -1,0 +1,4 @@
+trigger ApexTrigger1 on Account (before update) {
+	Account a = Trigger.new[0]; // access the first record and update it
+    a.Name = a.Name + 'Limited';
+}

@@ -1,0 +1,33 @@
+trigger ApexTrigger10 on Account (before insert, after insert, before update, after update, before delete, after delete) {
+	
+    //BEST PRACTICES TO WRITE APEX TRIGGERS IN SALESFORCE
+    
+    //example using trigger design pattern
+	
+    if(trigger.isbefore){
+        if(trigger.isinsert){
+            // write the actriggerhelper.beforeinsertmethod(trigger.new)
+        }
+        else if(trigger.isupdate){
+        	// write the actriggerhelper.beforeupdatemethod(trigger.oldmap, trigger.new)
+        }
+        else if(trigger.isdelete){
+            // write the actriggerhelper.beforedeletemethod(trigger.old)
+        }
+    }
+    else if(trigger.isafter){
+        if(trigger.isinsert){
+            // write the actriggerhelper.afterinsertmethod(trigger.new)
+        }
+        else if(trigger.isupdate){
+        	// write the actriggerhelper.afterupdatemethod(trigger.oldmap, trigger.new)
+        }
+        else if(trigger.isdelete){
+            // write the actriggerhelper.afterdeletemethod(trigger.old)
+        }
+        else if(trigger.isundelete){
+            // write the actriggerhelper.afterundeletemethod(trigger.old)
+        }
+        
+    }
+}

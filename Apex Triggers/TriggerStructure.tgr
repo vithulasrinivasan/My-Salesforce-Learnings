@@ -1,0 +1,18 @@
+trigger TriggerStructure on Account (before insert) {
+//TriggerStructure - name of the trigger
+//Account - object on which we are creating this trigger
+//(before insert, before update) - trigger events - trigger happens before insertion and updation of records into the Account object
+
+    //code to execute 
+}
+
+//TRIGGER EVENTS:- 
+
+//before insert
+//before update
+//before delete 
+
+//after insert
+//after update
+//after delete
+//after undelete

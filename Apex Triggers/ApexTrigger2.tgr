@@ -1,0 +1,42 @@
+trigger ApexTrigger2 on Contact (before insert, before update, before delete, after insert, after update, after delete) {
+    
+    //***CONTEXT VARIABLES***
+    //How to distinguish if the trigger is getting executed bcoz of the insert or the update ?
+    
+    //5) isInsert - returns true if the DML operation bcoz of which the trigger is getting executed is an Insert operation
+    //6) isUpdate - returns true if the DML operation bcoz of which the trigger is getting executed is an Update operation
+    //7) isDelete - returns true if the DML operation bcoz of which the trigger is getting executed is a Delete operation
+    //8) isUndelete - returns true if the DML operation bcoz of which the trigger is getting executed is a Undelete operation
+    //9) isBefore
+    //10) isAfter
+    //11) Size
+
+    //maintains the order and one trigger on every object 
+    //trigger helper class design pattern intuition
+    
+    if(trigger.isBefore){
+        if(trigger.isInsert){
+            System.debug('I am before Insert');
+        }
+        else if(trigger.isUpdate){
+            System.debug('I am before Update');
+        }
+        else if(trigger.isDelete){
+            System.debug('I am before Delete');
+        }
+    }
+    else if(trigger.isAfter){
+        if(trigger.isInsert){
+            System.debug('I am after Insert');
+        }
+        else if(trigger.isUpdate){
+            System.debug('I am after Update');
+        }
+        else if(trigger.isDelete){
+            System.debug('I am after Delete');
+        }
+        else if(trigger.isunDelete){
+            System.debug('I am after UnDelete');
+        }
+    }
+}

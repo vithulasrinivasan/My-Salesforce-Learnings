@@ -1,0 +1,24 @@
+trigger ApexTrigger11 on Case (before update, after insert) {
+    
+    //BEST PRACTICES TO WRITE APEX TRIGGERS IN SALESFORCE
+    
+	//Recursion in triggers
+	
+    if(trigger.isinsert){
+        
+        if(casetriggerhelper.isfirstruninsert){
+            casetriggerhelper.isfirstruninsert=false;
+            
+            casetriggerhelper.mymethod2(); // call helper class method
+        }
+    }
+    
+    if(trigger.isupdate){
+        
+        if(casetriggerhelper.isfirstrunupdate){
+            casetriggerhelper.isfirstrunupdate=false;
+            
+            casetriggerhelper.mymethod1(trigger.old); // call helper class method
+        }
+    }
+}

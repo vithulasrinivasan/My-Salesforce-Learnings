@@ -1,0 +1,52 @@
+trigger ApexTrigger9 on Account (before insert, after insert , before update, after update) {
+
+    //BEST PRACTICES TO WRITE APEX TRIGGERS IN SALESFORCE
+    
+    //Trigger helper class design patterns
+    
+    // 1) there should not be more than one trigger on a particular object bcoz the order of the execution is not guaranteed if its not followed
+    
+    // 2) create logicless triggers - no logic shuld be there inside the trigger , it shuld be there in another class called as the helper class 
+    //and we shuld call the method of the helper class to execute that logic 
+    
+    //Design pattern ensures the following things:-
+    
+    // 3) taking care of the order
+    // 4) eliminates code redundancy
+    
+    if(trigger.isbefore){
+        if(trigger.isinsert){
+            //execute the first trigger
+            acctriggerhelper.firstmethod(trigger.new);
+            //execute the second trigger
+            acctriggerhelper.secondmethod(trigger.new);
+            //both of these trigger will follow the execution order
+        }
+        else if(trigger.isupdate){
+        //write the code fot before update
+        acctriggerhelper.firstmethod(trigger.new);
+        }
+        else if(trigger.isdelete){
+            //write the code for before delete
+        }
+    }
+    else if(trigger.isafter){
+        if(trigger.isinsert){
+            //execute the first trigger
+            acctriggerhelper.firstmethod(trigger.new);
+            //execute the second trigger
+            acctriggerhelper.secondmethod(trigger.new);
+            //both of these trigger will follow the execution order
+        }
+        else if(trigger.isupdate){
+        //write the code fot before update
+        acctriggerhelper.firstmethod(trigger.new);
+        }
+        else if(trigger.isdelete){
+            //write the code for before delete
+        }
+        
+    }
+    
+    
+}
