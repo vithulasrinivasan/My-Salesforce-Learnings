@@ -1,0 +1,22 @@
+<apex:page standardController="Student__c" >
+    <apex:form >
+        <apex:pageMessages></apex:pageMessages>
+        
+        <apex:pageMessage severity="INFO" strength="2">
+        	Hello I am just a simple message
+        </apex:pageMessage> 
+        
+        <apex:pageBlock title="Student Create & Edit Page">
+            <apex:pageBlockSection >
+                <apex:inputField value="{!Student__c.Student_Name__c}"/>
+                <apex:inputField value="{!Student__c.Registration_Fees__c}"/>
+                <apex:inputField value="{!Student__c.Student_Email__c}"/>
+                <apex:inputField value="{!Student__c.Description__c}"/>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockButtons location="BOTTOM">
+            	<apex:commandButton action="{!Save}" value="Save the Record"/>
+        	</apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
