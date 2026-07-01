@@ -1,4 +1,4 @@
-<apex:page standardController="Account" sidebar="false">
+<apex:page standardController="Account" extensions="LeadExtension,StudentExtension" sidebar="false">
     <apex:form >
         <apex:pageBlock title="Account Create & Edit Page">
             <apex:pageBlockSection >
@@ -12,5 +12,25 @@
             	<apex:commandButton action="{!Save}" value="Save the Record"/>
         	</apex:pageBlockButtons>
         </apex:pageBlock>
+        
+    <apex:pageBlock >
+        <apex:pageBlockTable value="{!llist}" var="l">
+            
+            <apex:column value="{!l.Name}"/>
+            <apex:column value="{!l.Status}"/>
+            
+        </apex:pageBlockTable>
+        
+    </apex:pageBlock> 
+        
+    <apex:pageBlock >
+        <apex:pageBlockTable value="{!stlist}" var="st">
+            
+            <apex:column value="{!st.Name}"/>
+            <apex:column value="{!st.Student_Name__c}"/>
+            
+        </apex:pageBlockTable>
+        
+    </apex:pageBlock> 
     </apex:form>
 </apex:page>
