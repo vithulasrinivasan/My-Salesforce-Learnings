@@ -1,37 +1,54 @@
-<apex:page controller="FirstController">
+<apex:page controller="FirstController" extensions="LeadExtension">
     <apex:form >
+        
+        <apex:tabPanel>
+            
+            <apex:tab label="first tab">
         
         <apex:pageBlock title="Account, Contact & Opportunity Create Page">
             
             <apex:pageBlockSection title="Account Information">
+                <apex:outputLabel value="Account Name"/>
+                <apex:inputText value="{!accName}"/>
                 
-                <apex:inputText value="{!accName}" label="Account Name" required="true"/>
-                <apex:inputText value="{!accEmployees}" label="Number Of Employees"/>
-            
+                <apex:outputLabel value="Number Of Employees"/>
+                <apex:inputText value="{!accEmployees}"/>
             </apex:pageBlockSection>
             
             <apex:pageBlockSection title="Contact Information">
+                <apex:outputLabel value="Contact Name"/>
+                <apex:inputText value="{!conName}"/>
                 
-                <apex:inputText value="{!conName}" label="Contact Name"/>
-                <apex:inputText value="{!conEmail}" label="Contact Email"/>
-            
+                <apex:outputLabel value="Contact Email"/>
+                <apex:inputText value="{!conEmail}"/>
             </apex:pageBlockSection>
             
             <apex:pageBlockSection title="Opportunity Information">
+                <apex:outputLabel value="Opportunity Name"/>
+                <apex:inputText value="{!oppName}"/>
                 
-                <apex:inputText value="{!oppName}" label="Opportunity Name"/>
-                <apex:inputText value="{!oppAmount}" label="Opportunity Amount"/>
-            
+                <apex:outputLabel value="Opportunity Amount"/>
+                <apex:inputText value="{!oppAmount}"/>
             </apex:pageBlockSection>
             
-            <apex:pageBlockSection >
-                
+            <apex:pageBlockButtons >
                 <apex:commandButton action="{!saveTheRecord}" value="Save all three of them"/>
-            
-            </apex:pageBlockSection>
-        
+            </apex:pageBlockButtons>
+                
         </apex:pageBlock>
+        
+                </apex:tab>
+            
+		<apex:tab label="second tab">            
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!llist}" var="l">
+                <apex:column value="{!l.Name}"/>
+                <apex:column value="{!l.Status}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+            
+            </apex:tab>
     
+        </apex:tabPanel>
     </apex:form>
-    
 </apex:page>
