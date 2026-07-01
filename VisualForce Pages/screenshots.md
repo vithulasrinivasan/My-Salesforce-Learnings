@@ -24,5 +24,12 @@ Account Contact Opportunity Create & Edit Page :-
 
 <img width="2552" height="888" alt="image" src="https://github.com/user-attachments/assets/b18a208c-7e08-4909-8bd2-a3f8ef7cb492" />
 
+Account search page :-
+
+<img width="2560" height="866" alt="image" src="https://github.com/user-attachments/assets/fb611409-7fa4-4d00-9a34-d1cf6bbf44db" />
+
+with multiple tabs:-
+
+<img width="2558" height="1166" alt="image" src="https://github.com/user-attachments/assets/e59fbdcf-2e32-49e7-91e8-ad0f5a15ac73" />
 
 
